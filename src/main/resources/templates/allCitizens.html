@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+	<title>Citizen Data</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+<nav class="navbar navbar-light bg-light">
+	<div class="container-fluid">
+
+	</div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid">
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-link active" aria-current="page" href="/citizen/register">Home</a>
+				<a class="nav-link" href="/citizen/all">All Citizen</a>
+				<a class="nav-link" href="/citizen/byaadhar">Search Citizen</a>
+
+			</div>
+		</div>
+	</div>
+</nav>
+
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>CITIZENS DATA</h3>
+			</div>
+			<div class="card-body">
+				<table border="1" class="table table-hover">
+					<tr class="bg-info text-white">
+						<th>ID</th>
+						<th>NAME</th>
+						<th>GENDER</th>
+						<th>VACCINATION DOSE</th>
+						<th>VACCINATION DATE</th>
+						<th>VACCINE MANUFACTURER</th>
+						<th>EMAIL ID</th>
+						<th>AADHAR NO</th>
+						<th>OPERATION</th>
+					</tr>
+					<tr th:each="ob:${clist}">
+						<td>[[${ob.citizenId}]]</td>
+						<td>[[${ob.citizenName}]]</td>
+						<td>[[${ob.citizenGender}]]</td>
+						<td>[[${ob.citizenDoses}]]</td>
+						<td>[[${ob.citizenVaccinedate}]]</td>
+						<td>[[${ob.citizenVacccineName}]]</td>
+						<td>[[${ob.citizenEmailId}]]</td>
+						<td>[[${ob.citizenAadharNo}]]</td>
+						<td><a th:href="@{/citizen/delete(id=${ob.citizenId})}" class="btn btn-danger">DELETE</a> <br />
+							<a th:href="@{/citizen/edit(id=${ob.citizenId})}" class="btn btn-warning">EDIT</a></td>
+					</tr>
+
+				</table>
+			</div>
+			<div class="card-footer bg-info text-white" th:if="${message!=null}">
+				<b>[[${message}]]</b>
+			</div>
+
+		</div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<li class="page-item" th:if="${!page.isFirst()}">
+					<a class="page-link" th:href="@{/citizen/all(page=0)}">First</a>
+				</li>
+				<li class="page-item" th:if="${page.hasPrevious()}">
+					<a class="page-link" th:href="@{/citizen/all(page=${page.getNumber()-1})}">Previous</a>
+				</li>
+				<th:block th:each="i:${#numbers.sequence(0,page.getTotalPages()-1)}">
+ <th:block th:if="${i==page.getNumber()}">
+ <li class="page-item active">
+ <a class="page-link"
+th:href="@{/citizen/all(page=${i})}">[[${i+1}]]</a>
+ </li>
+ </th:block>
+ <th:block th:if="${i!=page.getNumber()}">
+ <li class="page-item">
+ <a class="page-link"
+th:href="@{/citizen/all(page=${i})}">[[${i+1}]]</a>
+ </li>
+ </th:block>
+</th:block>
+ 
+ <li class="page-item" th:if="${page.hasNext()}">
+ <a class="page-link"
+th:href="@{/citizen/all(page=${page.getNumber()+1})}">Next</a>
+</li>
+<li class="page-item"
+th:if="${!page.isLast()}">
+ <a class="page-link"
+th:href="@{/citizen/all(page=${page.getTotalPages()-1})}">Last</a>
+</li>
+ </ul>
+ </nav>
+</body>
+<div class="card">
+  <div class="card-header">
+    Thanks for Visiting Us!
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>Tough things eventually make us tough, like Covid times!</p>
+      <footer class="blockquote-footer">Gangadhar Kadam<cite title="Source Title"></cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+</html>

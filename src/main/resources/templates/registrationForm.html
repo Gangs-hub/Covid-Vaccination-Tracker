@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<nav class="navbar navbar-light bg-light">
+<div class="container-fluid">
+
+</div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid">
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-link active" aria-current="page" href="#">Home</a>
+				<a class="nav-link" href="/citizen/all">All Citizens</a>
+				<a class="nav-link" href="/citizen/byaadhar">Search Citizen</a>
+
+			</div>
+		</div>
+	</div>
+</nav>
+
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>COVID VACCINANTION TRACKER</h3>
+			</div>
+			<div class="card-body">
+				<form method="post" th:action="@{/citizen/save}">
+
+					Name : <input type="text" name="citizenName" class="form-control">
+					Gender:
+					<input type="radio" name="citizenGender" value="Male" /> Male
+					<input type="radio" name="citizenGender" value="Female" /> Female <br/>
+					Aadhar No:<input type="text" name="citizenAadharNo" class="form-control">
+				    Vaccination Dose : <select name="citizenDoses" class="form-control">
+						<option value="">-SELECT-</option>
+						<option value="First Dose">First Dose</option>
+						<option value="Second Dose">Second Dose</option>
+						<option value="None">None</option>
+					</select>
+					Date of Vaccination:<input type="date"name="citizenVaccinedate" class="form-control">
+					Manufacturer Details:<select name="citizenVacccineName" class="form-control">
+					<option value="">-SELECT-</option>
+					<option value="Covaxin">Covaxin (Bharat Biotech)</option>
+					<option value="Covishield">Covishield (Serum Institute of India)</option>
+					<option value="Sprutnik">Sprutnik V</option>
+					</select>
+					Email Id : <input type="text" name="citizenEmailId" id="citizenEmailId" class="form-control"><br/>
+					<div><button type="submit" class="btn btn-success"> CREATE </button></div>
+
+				</form>
+			</div>
+			<div class="card-footer bg-info text-white" th:if="${message!=null}">
+				<b>[[${message}]]</b>
+			</div>
+
+		</div>
+	</div>
+</body>
+<div class="card">
+  <div class="card-header">
+    Thanks for Visiting Us!
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>Tough things eventually make us tough, like Covid times!</p>
+      <footer class="blockquote-footer">Gangadhar Kadam<cite title="Source Title"></cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Edit here!</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+</head>
+<nav class="navbar navbar-light bg-light">
+	<div class="container-fluid">
+
+	</div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid">
+
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-link active" aria-current="page" href="/citizen/register">Home</a>
+				<a class="nav-link" href="/citizen/all">All Citzens</a>
+
+			</div>
+		</div>
+	</div>
+</nav>
+
+<body>
+	<div class="container">
+		<div class="card">
+			<div class="card-header bg-primary text-white text-center">
+				<h3>CITZEN UPDATE </h3>
+			</div>
+			<div class="card-body">
+				<form method="POST" th:action="@{/citizen/update}" th:object="${objCitizen}">
+					ID :<input type="text" th:field="*{citizenId}" class="form-control" readOnly>
+					Name : <input type="text" th:field="*{citizenName}" class="form-control">
+					Gender:
+					<input type="radio" th:field="*{citizenGender}" value="Male" /> Male
+					<input type="radio" th:field="*{citizenGender}" value="Female" /> Female <br />
+					Aadhar No:<input type="text" th:field="*{citizenAadharNo}" class="form-control">
+					Vaccination Dose : <select th:field="*{citizenDoses}" class="form-control">
+						<option value="">-SELECT-</option>
+						<option value="First Dose">First Dose</option>
+						<option value="Second Dose">Second Dose</option>
+						<option value="None">None</option>
+					</select>
+					Date of Vaccination:<input type="date" th:field="*{citizenVaccinedate}" class="form-control">
+					Manufacturer Details:<select th:field="*{citizenVacccineName}" class="form-control">
+						<option value="">-SELECT-</option>
+						<option value="Covaxin">Covaxin (Bharat Biotech)</option>
+						<option value="Covishield">Covishield (Serum Institute of India)</option>
+						<option value="Sprutnik">Sprutnik V</option>
+					</select>
+					Email Id : <input type="text" th:field="*{citizenEmailId}" id="citizenEmailId"
+						class="form-control"><br />
+					<button type="submit" class="btn btn-success">UPDATE</button>
+
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+<div class="card">
+  <div class="card-header">
+    Thanks for Visiting Us!
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>Tough things eventually make us tough, like Covid times!</p>
+      <footer class="blockquote-footer">Gangadhar Kadam<cite title="Source Title"></cite></footer>
+    </blockquote>
+  </div>
+</div>
+
+</html>
