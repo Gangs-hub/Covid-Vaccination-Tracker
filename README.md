@@ -1,6 +1,6 @@
 # Covid-Vaccination-Tracker
 Technologies Used: 
-Spring boot 2.5, Spring MVC, Spring JPA, Spring Email, Spring Schedular,Log4J,Thymeleaf, Mysql,Embedded Tomcat server
+Spring boot 2.5, Spring MVC, Maven, Spring JPA, Spring Email, Spring Schedular,Log4J,Thymeleaf, Mysql,Embedded Tomcat server
 
 Description:
 A Web Application portal where user can register/fill Vaccination details. We can add new citizen, edit,update and delete. 
